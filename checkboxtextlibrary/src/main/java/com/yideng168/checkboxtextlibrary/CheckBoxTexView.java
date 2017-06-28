@@ -82,7 +82,6 @@ public class CheckBoxTexView extends LinearLayout {
 
     }
 
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
@@ -104,12 +103,13 @@ public class CheckBoxTexView extends LinearLayout {
 
         }
 
-        return true;
-
+       // return true;
+        return super.onTouchEvent(event);
     }
 
-    
-    
+
+
+
     private void ChangeView() {
         if(mOnCheckedChangeListener!=null){
             mOnCheckedChangeListener.onCheckedChanged(mChecked);    //接口回调
