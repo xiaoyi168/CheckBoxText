@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityEvent;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -93,40 +94,7 @@ public class CheckBoxTexView extends LinearLayout {
 
                 mChecked=!mChecked;
 
-
-                if(mOnCheckedChangeListener!=null){
-                    mOnCheckedChangeListener.onCheckedChanged(mChecked);    //接口回调
-
-                }
-
-
-                mView.setBackgroundColor(mPressColor);  //按下时的背景色
-
-
-                if(mChecked){
-
-                    if(mCheckedDrawable==null){  //图片
-                        mImg.setImageResource(R.drawable.on);
-                    }
-                    else{
-                        mImg.setImageDrawable(mCheckedDrawable);
-                    }
-                    mName.setTextColor(mTextColorChecked);//文字颜色
-
-
-                }
-                else {
-
-                    if(mUncheckedDrawable==null){  //图片
-                        mImg.setImageResource(R.drawable.off);
-                    }
-                    else{
-                        mImg.setImageDrawable(mUncheckedDrawable);
-                    }
-
-                    mName.setTextColor(mTextColorUnChecked);//文字颜色
-
-                }
+                ChangeView();
 
                 break;
             case MotionEvent.ACTION_UP:
@@ -140,8 +108,69 @@ public class CheckBoxTexView extends LinearLayout {
 
     }
 
+    
+    
+    private void ChangeView() {
+        if(mOnCheckedChangeListener!=null){
+            mOnCheckedChangeListener.onCheckedChanged(mChecked);    //接口回调
+
+        }
+
+
+        mView.setBackgroundColor(mPressColor);  //按下时的背景色
+
+
+        if(mChecked){
+
+            if(mCheckedDrawable==null){  //图片
+                mImg.setImageResource(R.drawable.on);
+            }
+            else{
+                mImg.setImageDrawable(mCheckedDrawable);
+            }
+            mName.setTextColor(mTextColorChecked);//文字颜色
+
+
+        }
+        else {
+
+            if(mUncheckedDrawable==null){  //图片
+                mImg.setImageResource(R.drawable.off);
+            }
+            else{
+                mImg.setImageDrawable(mUncheckedDrawable);
+            }
+
+            mName.setTextColor(mTextColorUnChecked);//文字颜色
+
+        }
+    }
+
+
+    /**
+     * 回调接口
+     */
     public  interface OnCheckedChangeListener {
         void onCheckedChanged( boolean isChecked);
+    }
+
+
+    /**
+     * 对外提供的方法
+     * @param checked
+     */
+    public void setChecked(boolean checked) {
+        mChecked=checked;
+        ChangeView();
+
+    }
+
+    /**
+     * 对外提供的方法
+     * @return
+     */
+    public boolean isChecked() {
+        return mChecked;
     }
 
 }
