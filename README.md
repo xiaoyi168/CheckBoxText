@@ -23,9 +23,8 @@ dependencies {
 ## 三.效果预览：
 ![](https://github.com/alijiahua/CheckBoxText/blob/master/img/img.gif)
 
-## 四.使用：
-<pre><code>
-        <com.yideng168.checkboxtextlibrary.CheckBoxTexView
+## 四.使用
+    <com.yideng168.checkboxtextlibrary.CheckBoxTexView
                android:id="@+id/id_checkbox_textview"
                android:layout_width="200dp"
                android:layout_height="200dp"
@@ -36,7 +35,7 @@ dependencies {
                app:text="@string/app_name"
                android:layout_centerInParent="true"
                />
-</code></pre>
+
 
 
 ## 五.CSDN博客地址：http://blog.csdn.net/alijiahua
