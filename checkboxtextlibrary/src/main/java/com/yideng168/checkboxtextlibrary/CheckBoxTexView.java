@@ -93,7 +93,12 @@ public class CheckBoxTexView extends LinearLayout {
 
                 mChecked=!mChecked;
 
-                mOnCheckedChangeListener.onCheckedChanged(mChecked); //接口回调
+
+                if(mOnCheckedChangeListener!=null){
+                    mOnCheckedChangeListener.onCheckedChanged(mChecked); //接口回调
+
+                }
+
 
                 mView.setBackgroundColor(mPressColor);  //按下时的背景色
 
