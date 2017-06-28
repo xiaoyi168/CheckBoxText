@@ -95,7 +95,7 @@ public class CheckBoxTexView extends LinearLayout {
 
 
                 if(mOnCheckedChangeListener!=null){
-                    mOnCheckedChangeListener.onCheckedChanged(mChecked); //接口回调
+                    mOnCheckedChangeListener.onCheckedChanged(mChecked);    //接口回调
 
                 }
 
