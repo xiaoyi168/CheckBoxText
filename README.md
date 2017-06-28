@@ -25,8 +25,6 @@ dependencies {
 
 ## 四.使用：
 <pre><code>
-
-
         <com.yideng168.checkboxtextlibrary.CheckBoxTexView
                android:id="@+id/id_checkbox_textview"
                android:layout_width="200dp"
@@ -38,11 +36,6 @@ dependencies {
                app:text="@string/app_name"
                android:layout_centerInParent="true"
                />
-
-
-
-
-
 </code></pre>
 
 
