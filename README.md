@@ -16,7 +16,7 @@
 ## 二.其次在dependencies中添加：
 <pre><code>
 dependencies {
-      compile 'com.github.alijiahua:CheckBoxText:2.0'
+      compile 'com.github.alijiahua:CheckBoxText:2.1'
 }
 </code></pre>
 
