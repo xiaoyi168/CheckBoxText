@@ -23,7 +23,7 @@ dependencies {
 ## 三.效果预览：
 ![](https://github.com/alijiahua/CheckBoxText/blob/master/img/img.gif)
 
-## 四.使用
+## 四.xml中使用：
     <com.yideng168.checkboxtextlibrary.CheckBoxTexView
                android:id="@+id/id_checkbox_textview"
                android:layout_width="200dp"
@@ -36,8 +36,17 @@ dependencies {
                android:layout_centerInParent="true"
                />
 
+## 五.java中监听：
+    CheckBoxTexView checkBoxTexView= (CheckBoxTexView) findViewById(R.id.id_checkbox_textview);
+        checkBoxTexView.setOnCheckedChangeListener(new CheckBoxTexView.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(boolean isChecked) {
 
+                Log.d("MainActivity", "isChecked:" + isChecked);
 
-## 五.CSDN博客地址：http://blog.csdn.net/alijiahua
+            }
+        });
+
+## 六.CSDN博客地址：http://blog.csdn.net/alijiahua
 
 
