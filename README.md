@@ -20,7 +20,7 @@ dependencies {
 }
 </code></pre>
 
-## 三.使用：
+## 三.效果预览：
 ![](https://github.com/alijiahua/CheckBoxText/blob/master/img/img.gif)
 
 ## 四.使用：
@@ -38,6 +38,8 @@ dependencies {
                app:text="@string/app_name"
                android:layout_centerInParent="true"
                />
+
+
 
          //java代码中
 
