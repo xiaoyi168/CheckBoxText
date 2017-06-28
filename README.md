@@ -26,7 +26,7 @@ dependencies {
 ## 四.使用：
 <pre><code>
 
-         //xml文件中
+
         <com.yideng168.checkboxtextlibrary.CheckBoxTexView
                android:id="@+id/id_checkbox_textview"
                android:layout_width="200dp"
@@ -41,17 +41,6 @@ dependencies {
 
 
 
-         //java代码中
-
-           CheckBoxTexView checkBoxTexView= (CheckBoxTexView) findViewById(R.id.id_checkbox_textview);
-                 checkBoxTexView.setOnCheckedChangeListener(new CheckBoxTexView.OnCheckedChangeListener() {
-                     @Override
-                     public void onCheckedChanged(boolean isChecked) {
-
-                         Log.d("MainActivity", "isChecked:" + isChecked);
-
-                     }
-                 });
 
 
 </code></pre>
