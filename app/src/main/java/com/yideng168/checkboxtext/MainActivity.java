@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CheckBoxTexView checkBoxTexView= (CheckBoxTexView) findViewById(R.id.id_checkbox_textview);
+     /*   CheckBoxTexView checkBoxTexView= (CheckBoxTexView) findViewById(R.id.id_checkbox_textview);
         checkBoxTexView.setOnCheckedChangeListener(new CheckBoxTexView.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(boolean isChecked) {
@@ -23,6 +23,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MainActivity", "isChecked:" + isChecked);
 
             }
-        });
+        });*/
     }
 }
