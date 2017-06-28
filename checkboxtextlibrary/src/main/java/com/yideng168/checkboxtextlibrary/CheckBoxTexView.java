@@ -25,7 +25,7 @@ import android.widget.TextView;
 
 public class CheckBoxTexView extends LinearLayout {
 
-    private boolean mChecked;
+    private boolean mChecked=false;
     private ImageView mImg;
     private TextView mName;
     private View mView;
@@ -93,6 +93,16 @@ public class CheckBoxTexView extends LinearLayout {
 
                 mChecked=!mChecked;
 
+                if(mOnCheckedChangeListener!=null){
+                    mOnCheckedChangeListener.onCheckedChanged(mChecked);    //接口回调
+
+                }
+
+
+                mView.setBackgroundColor(mPressColor);  //按下时的背景色
+
+
+
                 ChangeView();
 
                 break;
@@ -111,13 +121,6 @@ public class CheckBoxTexView extends LinearLayout {
 
 
     private void ChangeView() {
-        if(mOnCheckedChangeListener!=null){
-            mOnCheckedChangeListener.onCheckedChanged(mChecked);    //接口回调
-
-        }
-
-
-        mView.setBackgroundColor(mPressColor);  //按下时的背景色
 
 
         if(mChecked){
