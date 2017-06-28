@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<declare-styleable name="CheckBoxTexView">
+    <attr name="textWeight" format="integer"/>  //文字比例
+    <attr name="textColorChecked" format="color"/>  //选中文字颜色
+    <attr name="textColorUnChecked" format="color"/>  //不选中文字颜色
+    <attr name="textSize"  format="dimension"/>  //文字大小
+    <attr name="pressColor" format="color"/>   //按下的颜色
+    <attr name="checkedDrawable" format="reference"/>  //选中的图片
+    <attr name="uncheckedDrawable" format="reference"/>  //不选中的图片
+    <attr name="text" format="reference"/>  //文字
+
+</declare-styleable>
+
+</resources>

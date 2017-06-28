@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="trant">#20000000</color>
+    <color name="checked">#F00</color>
+    <color name="umchecked">#000</color>
+</resources>
