@@ -16,7 +16,7 @@
 ## 二.其次在dependencies中添加：
 <pre><code>
 dependencies {
-      compile 'com.github.alijiahua:CheckBoxText:2.1'
+      compile 'com.github.lmiot:CheckBoxText:2.1'
 }
 </code></pre>
 
@@ -47,6 +47,6 @@ dependencies {
             }
         });
 
-## 六.CSDN博客地址：http://blog.csdn.net/alijiahua
+
 
 
