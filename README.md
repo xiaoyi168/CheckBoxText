@@ -16,7 +16,7 @@
 ## 二.其次在dependencies中添加：
 <pre><code>
 dependencies {
-      compile 'com.github.lmiot:CheckBoxText:2.1'
+       implementation 'com.github.lmiot:CheckBoxText:2.1'
 }
 </code></pre>
 
