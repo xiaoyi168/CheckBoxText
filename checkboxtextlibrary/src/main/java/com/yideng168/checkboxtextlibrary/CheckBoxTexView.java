@@ -25,22 +25,24 @@ import android.widget.TextView;
 
 public class CheckBoxTexView extends LinearLayout {
 
-    private boolean mChecked=false;
     private ImageView mImg;
     private TextView mName;
     private View mView;
-    private int mTextWeight;
     private float mTextSize;
     private int mTextColorChecked;
     private int mTextColorUnChecked;
-    private int mPressColor;
     private Drawable mCheckedDrawable;
     private Drawable mUncheckedDrawable;
     private String mText;
-    private  OnCheckedChangeListener mOnCheckedChangeListener;
+    private boolean mCheckFlag;
+    private  onCheckChangeListener mOnCheckChangeListener;
 
-    public void setOnCheckedChangeListener(OnCheckedChangeListener onCheckedChangeListener) {
-        mOnCheckedChangeListener = onCheckedChangeListener;
+    public onCheckChangeListener getOnCheckChangeListener() {
+        return mOnCheckChangeListener;
+    }
+
+    public void setOnCheckChangeListener(onCheckChangeListener onCheckChangeListener) {
+        mOnCheckChangeListener = onCheckChangeListener;
     }
 
     public CheckBoxTexView(Context context) {
@@ -52,24 +54,19 @@ public class CheckBoxTexView extends LinearLayout {
 
 
         TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CheckBoxTexView, 0, 0);
-        mTextWeight = typedArray.getInt(R.styleable.CheckBoxTexView_textWeight, 1);
         mTextColorChecked = typedArray.getColor(R.styleable.CheckBoxTexView_textColorChecked, Color.RED);
         mTextColorUnChecked = typedArray.getColor(R.styleable.CheckBoxTexView_textColorUnChecked, Color.BLACK);
         mTextSize = typedArray.getDimension(R.styleable.CheckBoxTexView_textSize, 12f);
-        mPressColor = typedArray.getColor(R.styleable.CheckBoxTexView_pressColor, getResources().getColor(R.color.trant));
-
         mCheckedDrawable = typedArray.getDrawable(R.styleable.CheckBoxTexView_checkedDrawable);
         mUncheckedDrawable = typedArray.getDrawable(R.styleable.CheckBoxTexView_uncheckedDrawable);
         mText = typedArray.getString(R.styleable.CheckBoxTexView_text);
 
-        mChecked = false;
         mView = LayoutInflater.from(context).inflate(R.layout.checkbox_layout, this, true);
         mImg = (ImageView) mView. findViewById(R.id.id_img);
         mName = (TextView) mView.findViewById(R.id.id_name);
 
         mName.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0,1.0f)); //权重
         mName.setTextSize(mTextSize);  //文字大小
-
 
         if(!TextUtils.isEmpty(mText)){  //文字
             mName.setText(mText);
@@ -80,100 +77,38 @@ public class CheckBoxTexView extends LinearLayout {
 
         mName.setTextColor(mTextColorUnChecked);//文字颜色
 
+        mView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mCheckFlag =!mCheckFlag;
+                showView();
+
+            }
+        });
+
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-
-        int action = event.getAction();
 
 
-        switch (action){
-            case MotionEvent.ACTION_DOWN:
-
-                mChecked=!mChecked;
-
-                if(mOnCheckedChangeListener!=null){
-                    mOnCheckedChangeListener.onCheckedChanged(mChecked);    //接口回调
-
-                }
-
-
-                mView.setBackgroundColor(mPressColor);  //按下时的背景色
-
-
-
-                ChangeView();
-
-                break;
-            case MotionEvent.ACTION_UP:
-
-                mView.setBackgroundColor(Color.TRANSPARENT);
-                break;
-
+    private void showView() {
+        mImg.setImageDrawable(mCheckFlag?mCheckedDrawable:mUncheckedDrawable); //背景颜色
+        mName.setTextColor(mCheckFlag?mTextColorChecked:mTextColorUnChecked);//文字颜色
+        if(mOnCheckChangeListener!=null){
+            mOnCheckChangeListener.isChecked(mCheckFlag);
         }
 
-       // return true;
-        return super.onTouchEvent(event);
     }
 
-
-
-
-    private void ChangeView() {
-
-
-        if(mChecked){
-
-            if(mCheckedDrawable==null){  //图片
-                mImg.setImageResource(R.drawable.on);
-            }
-            else{
-                mImg.setImageDrawable(mCheckedDrawable);
-            }
-            mName.setTextColor(mTextColorChecked);//文字颜色
-
-
-        }
-        else {
-
-            if(mUncheckedDrawable==null){  //图片
-                mImg.setImageResource(R.drawable.off);
-            }
-            else{
-                mImg.setImageDrawable(mUncheckedDrawable);
-            }
-
-            mName.setTextColor(mTextColorUnChecked);//文字颜色
-
-        }
-    }
-
-
-    /**
-     * 回调接口
-     */
-    public  interface OnCheckedChangeListener {
-        void onCheckedChanged( boolean isChecked);
-    }
-
-
-    /**
-     * 对外提供的方法
-     * @param checked
-     */
-    public void setChecked(boolean checked) {
-        mChecked=checked;
-        ChangeView();
+    public  void setChecked(boolean isChecked){
+        mCheckFlag=isChecked;
+        showView();
 
     }
 
-    /**
-     * 对外提供的方法
-     * @return
-     */
-    public boolean isChecked() {
-        return mChecked;
+     public  interface  onCheckChangeListener{
+        void isChecked(boolean isChecked);
+
     }
 
 }
